@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Midnight Ocean — VS Code themes</title>
+  <link rel="stylesheet" href="/style.css">
+  <meta name="description" content="Midnight Ocean — a collection of four dark Visual Studio Code themes with ocean-inspired accents.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Midnight Ocean</h1>
+      <p class="tagline">A collection of four dark Visual Studio Code themes with ocean-inspired accents.</p>
+      <p class="cta"><a href="https://github.com/HectorCarreno/Midnight-Ocean/releases/latest" class="button">Download latest VSIX</a> <a href="https://github.com/HectorCarreno/Midnight-Ocean" class="muted">Repository</a></p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Choose a style</h2>
+      <p>All four themes customize the editor and workbench, including the sidebar, tabs, activity bar, status bar, panels, inputs, buttons, selections, and integrated terminal. They also provide syntax coloring tuned for low-glare dark backgrounds.</p>
+
+      <table class="themes">
+        <thead>
+          <tr><th>Theme</th><th>Background</th><th>Palette</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Midnight Ocean</strong></td><td><code>#191923</code></td><td>Ocean blue, sea-glass green, warm orange, and berry</td></tr>
+          <tr><td><strong>Midnight Ocean Dusk</strong></td><td><code>#111827</code></td><td>Sky blue, violet, mint, and golden yellow</td></tr>
+          <tr><td><strong>Midnight Ocean Reef</strong></td><td><code>#081B1F</code></td><td>Reef teal, bright cyan, mint, and yellow</td></tr>
+          <tr><td><strong>Midnight Ocean Ember</strong></td><td><code>#17171A</code></td><td>Icy cyan, violet, mint, and warm orange</td></tr>
+        </tbody>
+      </table>
+
+      <p>Types and numbers use warm accent colors; keywords, functions, and properties use each variant's brighter accents. Strings and comments use softer colors for contrast and visual hierarchy.</p>
+    </section>
+
+    <section>
+      <h2>Install the theme</h2>
+      <h3>Install the latest release</h3>
+      <p>Download the latest VSIX installer from the Releases page, or use the direct download:</p>
+      <p><a href="https://github.com/HectorCarreno/Midnight-Ocean/releases/latest/download/midnight-ocean.vsix">Download the latest Midnight Ocean VSIX</a></p>
+
+      <p>In VS Code:</p>
+      <ol>
+        <li>Download <code>midnight-ocean.vsix</code> using the link above.</li>
+        <li>Open the <strong>Extensions</strong> view (<code>Ctrl+Shift+X</code>).</li>
+        <li>Open the <strong>More Actions</strong> menu (<em>...</em>) and choose <strong>Install from VSIX...</strong>.</li>
+        <li>Select the downloaded VSIX file.</li>
+        <li>Open the Command Palette (<code>Ctrl+Shift+P</code>), run <em>Preferences: Color Theme</em>, and select one of the Midnight Ocean themes.</li>
+      </ol>
+
+      <p>Alternatively, install from a terminal:</p>
+      <pre><code>code --install-extension ./midnight-ocean.vsix</code></pre>
+    </section>
+
+    <section>
+      <h2>Build an installer from source</h2>
+      <p>To package the current source instead of using the included VSIX, install Node.js and pnpm, then run:</p>
+      <pre><code>pnpm install
+pnpm run package</code></pre>
+      <p>The <code>package</code> script runs <code>vsce package --no-dependencies</code> and creates a versioned <code>.vsix</code> file in the project directory (for example <code>midnight-ocean-0.0.2.vsix</code>).</p>
+    </section>
+
+    <section>
+      <h2>Automated releases</h2>
+      <p>Every push to <code>main</code> starts a GitHub Actions release workflow that increments the patch version, packages the extension, and creates a GitHub Release. The workflow publishes GitHub Releases only; publishing to the Visual Studio Marketplace is a separate, manual process.</p>
+    </section>
+
+    <section>
+      <h2>Activate or switch themes</h2>
+      <p>Open the Command Palette (<code>Ctrl+Shift+P</code>) and select <strong>Preferences: Color Theme</strong>. Choose <em>Midnight Ocean</em>, <em>Midnight Ocean Dusk</em>, <em>Midnight Ocean Reef</em>, or <em>Midnight Ocean Ember</em>.</p>
+      <p>Or set the theme directly in your VS Code <code>settings.json</code>:</p>
+      <pre><code>{
+  "workbench.colorTheme": "Midnight Ocean Dusk"
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Publish to the Visual Studio Marketplace</h2>
+      <p>To publish the extension on the Marketplace, create a publisher, update <code>package.json</code> with the publisher ID, and use <code>vsce</code> with a Marketplace personal access token. See the repository README for the full steps.</p>
+    </section>
+
+    <footer class="page-footer">
+      <p>Repository: <a href="https://github.com/HectorCarreno/Midnight-Ocean">HectorCarreno/Midnight-Ocean</a></p>
+    </footer>
+  </main>
+</body>
+</html>
