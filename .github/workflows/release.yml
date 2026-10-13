@@ -1,0 +1,84 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Increment patch version and commit it
+        id: version
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const manifest = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          const match = manifest.version.match(/^(\d+)\.(\d+)\.(\d+)$/);
+
+          if (!match) {
+            throw new Error(`Expected a stable semantic version, got "${manifest.version}"`);
+          }
+
+          manifest.version = `${match[1]}.${match[2]}.${Number(match[3]) + 1}`;
+          fs.writeFileSync('package.json', `${JSON.stringify(manifest, null, 2)}\n`);
+          NODE
+
+          VERSION="$(node -p "require('./package.json').version")"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "chore: release v${VERSION}"
+          git push origin HEAD:main
+
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Package VSIX
+        run: pnpm run package
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+          COMMIT_SHA: ${{ steps.version.outputs.commit_sha }}
+        shell: bash
+        run: |
+          VSIX="midnight-ocean-${VERSION}.vsix"
+          test -f "$VSIX"
+          cp "$VSIX" midnight-ocean.vsix
+
+          gh release create "v${VERSION}" \
+            "$VSIX" \
+            "midnight-ocean.vsix#Download the latest VSIX" \
+            --target "$COMMIT_SHA" \
+            --title "Midnight Ocean ${VERSION}" \
+            --generate-notes
