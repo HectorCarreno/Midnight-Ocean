@@ -3,144 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Midnight Ocean — Themes for VS Code</title>
-  <link rel="stylesheet" href="/style.css">
-  <meta name="description" content="Midnight Ocean — four premium dark Visual Studio Code themes inspired by the ocean.">
-  <meta property="og:title" content="Midnight Ocean — VS Code themes">
-  <meta property="og:description" content="Four premium dark Visual Studio Code themes with ocean-inspired accents. Download the VSIX or build from source.">
-  <meta property="og:image" content="/assets/og-preview.png">
+  <title>Midnight Ocean — VS Code themes</title>
+  <link rel="stylesheet" href="./style.css">
+  <meta name="description" content="Midnight Ocean — four minimalist dark themes for Visual Studio Code, crafted for late-night focus.">
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="/">
-        <img src="/assets/logo.svg" alt="Midnight Ocean" class="logo">
-        <span class="brand-text">Midnight Ocean</span>
-      </a>
-      <nav class="nav">
-        <a href="#themes">Themes</a>
-        <a href="#install">Install</a>
-        <a href="#build">Build</a>
-        <a href="https://github.com/HectorCarreno/Midnight-Ocean/releases/latest" class="button small">Download VSIX</a>
-      </nav>
-    </div>
-  </header>
+  <main class="wrap">
+    <header class="brand">
+      <img src="./assets/logo.svg" alt="Midnight Ocean" class="logo">
+      <div class="brand-text">
+        <h1>Midnight Ocean</h1>
+        <p class="subtitle">Four minimalist dark themes for VS Code — calm, focused, refined.</p>
+      </div>
+    </header>
 
-  <main class="container">
     <section class="hero">
-      <div class="hero-left">
-        <h1>Four premium dark themes for Visual Studio Code</h1>
-        <p class="lead">Deep, low-glare backgrounds paired with ocean-inspired accents to make your editor comfortable and beautiful for long coding sessions.</p>
+      <p class="lead">Deep, low-glare backgrounds paired with subtle ocean accents so your code stands out while your eyes rest.</p>
 
-        <p class="actions">
-          <a class="button" href="https://github.com/HectorCarreno/Midnight-Ocean/releases/latest">Download VSIX</a>
-          <a class="button secondary" href="https://github.com/HectorCarreno/Midnight-Ocean">View on GitHub</a>
-        </p>
+      <p class="ctas">
+        <a class="btn primary" href="https://github.com/HectorCarreno/Midnight-Ocean/releases/latest/download/midnight-ocean.vsix">Download VSIX</a>
+        <a class="btn" href="https://github.com/HectorCarreno/Midnight-Ocean">View on GitHub</a>
+      </p>
 
-        <ul class="kpi">
-          <li><strong>4</strong> themes</li>
-          <li><strong>Low-glare</strong> palettes</li>
-          <li><strong>Terminal</strong> & UI included</li>
-        </ul>
-      </div>
-
-      <aside class="hero-right">
-        <div class="preview-card">
-          <div class="editor-mock">
-            <div class="editor-top">
-              <span>index.js</span>
-              <div class="dots">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-            <pre class="code"><code>// Midnight Ocean — sample
-function greet(name) {
-  return `Hello, ${name}`;
-}
-
-console.log(greet('World'));
-</code></pre>
-          </div>
-        </div>
-      </aside>
+      <ul class="chips">
+        <li>4 themes</li>
+        <li>Low-glare</li>
+        <li>UI & terminal</li>
+      </ul>
     </section>
 
-    <section id="themes" class="section">
-      <h2>Choose a style</h2>
-      <p class="muted">Each theme covers the editor UI and syntax coloring with carefully balanced contrasts.</p>
+    <section class="swatches">
+      <article class="swatch" data-name="Midnight Ocean" style="--bg:#191923;">
+        <div class="swatch-surface"></div>
+        <div class="swatch-meta"><strong>Midnight Ocean</strong><span>#191923</span></div>
+      </article>
 
-      <div class="themes-grid">
-        <article class="theme-card" style="--bg:#191923;">
-          <div class="swatch"></div>
-          <h3>Midnight Ocean</h3>
-          <p class="muted">Ocean blue, sea-glass green, warm orange, and berry.</p>
-        </article>
+      <article class="swatch" data-name="Dusk" style="--bg:#111827;">
+        <div class="swatch-surface"></div>
+        <div class="swatch-meta"><strong>Midnight Ocean Dusk</strong><span>#111827</span></div>
+      </article>
 
-        <article class="theme-card" style="--bg:#111827;">
-          <div class="swatch"></div>
-          <h3>Midnight Ocean Dusk</h3>
-          <p class="muted">Sky blue, violet, mint, and golden yellow.</p>
-        </article>
+      <article class="swatch" data-name="Reef" style="--bg:#081B1F;">
+        <div class="swatch-surface"></div>
+        <div class="swatch-meta"><strong>Midnight Ocean Reef</strong><span>#081B1F</span></div>
+      </article>
 
-        <article class="theme-card" style="--bg:#081B1F;">
-          <div class="swatch"></div>
-          <h3>Midnight Ocean Reef</h3>
-          <p class="muted">Reef teal, bright cyan, mint, and yellow.</p>
-        </article>
-
-        <article class="theme-card" style="--bg:#17171A;">
-          <div class="swatch"></div>
-          <h3>Midnight Ocean Ember</h3>
-          <p class="muted">Icy cyan, violet, mint, and warm orange.</p>
-        </article>
-      </div>
-
-      <div class="note">
-        Types and numbers use warm accent colors; keywords and functions use brighter accents. Strings and comments use softer colors for contrast and hierarchy.
-      </div>
+      <article class="swatch" data-name="Ember" style="--bg:#17171A;">
+        <div class="swatch-surface"></div>
+        <div class="swatch-meta"><strong>Midnight Ocean Ember</strong><span>#17171A</span></div>
+      </article>
     </section>
 
-    <section id="install" class="section">
-      <h2>Install</h2>
-      <h3>Download the latest release</h3>
-      <p>Get the VSIX from the Releases page and install it in VS Code.</p>
-      <p><a class="button" href="https://github.com/HectorCarreno/Midnight-Ocean/releases/latest/download/midnight-ocean.vsix">Download midnight-ocean.vsix</a></p>
+    <section class="docs">
+      <div class="panel">
+        <h2>Install</h2>
+        <p class="muted">Download the VSIX and install in VS Code.</p>
+        <pre><code>code --install-extension ./midnight-ocean.vsix</code></pre>
+      </div>
 
-      <h3>Install in VS Code</h3>
-      <ol>
-        <li>Open Extensions (<code>Ctrl+Shift+X</code>).</li>
-        <li>Choose <em>Install from VSIX...</em> from the More Actions menu.</li>
-        <li>Select the downloaded <code>midnight-ocean.vsix</code>.</li>
-        <li>Open Command Palette (<code>Ctrl+Shift+P</code>) → <em>Preferences: Color Theme</em> and pick your theme.</li>
-      </ol>
-
-      <h3>Or install from terminal</h3>
-      <pre><code>code --install-extension ./midnight-ocean.vsix</code></pre>
-    </section>
-
-    <section id="build" class="section">
-      <h2>Build from source</h2>
-      <p>Package the extension locally with Node.js and pnpm:</p>
-      <pre><code>pnpm install
+      <div class="panel">
+        <h2>Build from source</h2>
+        <p class="muted">Requires Node.js and pnpm.</p>
+        <pre><code>pnpm install
 pnpm run package</code></pre>
-      <p>The <code>package</code> script runs <code>vsce package --no-dependencies</code> and writes a versioned <code>.vsix</code> in the project root.</p>
-    </section>
-
-    <section id="releases" class="section">
-      <h2>Automated releases</h2>
-      <p>Pushes to <code>main</code> trigger a release workflow that bumps the patch version, packages the extension, and creates a GitHub Release. Publishing to the Visual Studio Marketplace is a separate step — see the README for details.</p>
-    </section>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div>
-          <strong>Midnight Ocean</strong> — Visual Studio Code themes by <a href="https://github.com/HectorCarreno">HectorCarreno</a>.
-        </div>
-        <div class="footer-links">
-          <a href="https://github.com/HectorCarreno/Midnight-Ocean">Repository</a>
-          <a href="https://github.com/HectorCarreno/Midnight-Ocean/releases/latest">Releases</a>
-        </div>
       </div>
+    </section>
+
+    <footer class="footer">
+      <p>By <a href="https://github.com/HectorCarreno">HectorCarreno</a> — <a href="https://github.com/HectorCarreno/Midnight-Ocean">Source</a></p>
     </footer>
   </main>
 </body>
