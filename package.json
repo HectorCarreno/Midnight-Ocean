@@ -1,0 +1,43 @@
+{
+  "name": "midnight-ocean",
+  "displayName": "Midnight Ocean",
+  "description": "A deep navy VS Code theme with ocean blue and mint accents.",
+  "version": "0.0.1",
+  "publisher": "local-developer",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Midnight Ocean",
+        "uiTheme": "vs-dark",
+        "path": "./themes/midnight-ocean-color-theme.json"
+      },
+      {
+        "label": "Midnight Ocean Dusk",
+        "uiTheme": "vs-dark",
+        "path": "./themes/midnight-ocean-dusk-color-theme.json"
+      },
+      {
+        "label": "Midnight Ocean Reef",
+        "uiTheme": "vs-dark",
+        "path": "./themes/midnight-ocean-reef-color-theme.json"
+      },
+      {
+        "label": "Midnight Ocean Ember",
+        "uiTheme": "vs-dark",
+        "path": "./themes/midnight-ocean-ember-color-theme.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@vscode/vsce": "3.6.0"
+  },
+  "scripts": {
+    "package": "vsce package --no-dependencies"
+  }
+}
